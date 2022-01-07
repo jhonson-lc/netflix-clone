@@ -1,0 +1,40 @@
+.navbar {
+  align-items: center;
+  display: flex;
+  padding: 2.1rem 6rem;
+  position: fixed;
+  width: 100%;
+  z-index: 9;
+}
+.navbar__img {
+  max-height: 2.5rem;
+  cursor: pointer;
+}
+
+.navbar__container {
+  color: #fff;
+}
+.navbar__list {
+  display: flex;
+  padding: 0 3.5rem;
+}
+
+.navbar__item {
+  font-size: 1.5rem;
+  font-weight: 600;
+  list-style: none;
+  padding: 0 1rem;
+  cursor: pointer;
+}
+
+.navbar__item:hover {
+  color: #c9c9c9;
+}
+
+.navbar__avatar {
+  aspect-ratio: 1/1;
+  border-radius: 0.5rem;
+  object-fit: contain;
+  max-height: 3rem;
+  margin-left: auto;
+}
