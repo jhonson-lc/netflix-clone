@@ -1,13 +1,14 @@
-import NavBar from 'components/NavBar';
-import Banner from 'components/Banner';
-import HomeCategories from 'components/HomeCategories';
+import Home from 'pages/Home';
+import Series from 'pages/Series';
+import { Route, Switch } from 'wouter';
 
 function App() {
   return (
     <div>
-      <NavBar />
-      <Banner />
-      <HomeCategories />
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/series" component={Series} />
+      </Switch>
     </div>
   );
 }

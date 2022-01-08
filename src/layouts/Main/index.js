@@ -1,10 +1,10 @@
 import React from 'react';
 import requests from 'services/settings';
 import Category from 'components/Category';
-import './HomeCategories.css';
 
-function HomeCategories(props) {
-  console.log(props);
+import './Main.css';
+
+function Main() {
   return (
     <div className="HomeCategories">
       <Category
@@ -23,4 +23,4 @@ function HomeCategories(props) {
   );
 }
 
-export default HomeCategories;
+export default Main;
