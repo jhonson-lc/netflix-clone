@@ -1,26 +1,32 @@
 import React from 'react';
-import requests from 'services/settings';
+import { home, series } from 'services/settings';
 import Category from 'components/Category';
 
 import './Main.css';
 
-function Main() {
-  return (
-    <div className="HomeCategories">
-      <Category
-        isLarge={true}
-        title="NETFLIX ORIGINALS"
-        fetchUrl={requests.fetchNetflixOriginals}
-      />
-      <Category title="Trending Now" fetchUrl={requests.fetchTrending} />
-      <Category title="Top Rated" fetchUrl={requests.fetchTopRated} />
-      <Category title="Action Movies" fetchUrl={requests.fetchActionMovies} />
-      <Category title="Comedy Movies" fetchUrl={requests.fetchComedyMovies} />
-      <Category title="Horror Movies" fetchUrl={requests.fetchHorrorMovies} />
-      <Category title="Romance Movies" fetchUrl={requests.fetchHorrorMovies} />
-      <Category title="Documentaries" fetchUrl={requests.fetchDocumentaries} />
-    </div>
-  );
+function Main({ page }) {
+  if (page === 'home') {
+    return (
+      <div className="HomeCategories">
+        <Category isLarge={true} title="ORIGINALS" fetchUrl={home.fetchOriginals} />
+        <Category title="Trending Now" fetchUrl={home.fetchTrending} />
+        <Category title="Top Rated" fetchUrl={home.fetchTopRated} />
+        <Category title="Action Movies" fetchUrl={home.fetchActionMovies} />
+        <Category title="Comedy Movies" fetchUrl={home.fetchComedyMovies} />
+        <Category title="Horror Movies" fetchUrl={home.fetchHorrorMovies} />
+        <Category title="Romance Movies" fetchUrl={home.fetchRomanceMovies} />
+        <Category title="Documentaries" fetchUrl={home.fetchDocumentaries} />
+      </div>
+    );
+  } else {
+    return (
+      <div className="HomeCategories">
+        <Category isLarge={true} title="ON THE AIR" fetchUrl={series.fetchLatest} />
+        <Category title="Top Rated" fetchUrl={series.fetchTopRated} />
+        <Category title="Popular" fetchUrl={series.fetchPopular} />
+      </div>
+    );
+  }
 }
 
 export default Main;

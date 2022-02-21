@@ -9,7 +9,7 @@ function Home() {
     <div>
       <NavigationBar />
       <Header />
-      <Main />
+      <Main page={'home'} />
     </div>
   );
 }

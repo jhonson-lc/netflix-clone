@@ -1,16 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { IMAGE_URL } from 'services/settings';
-import requests from 'services/settings';
+import { home } from 'services/settings';
 import useMovies from 'hooks/useMovies';
-import stringFormat from 'utils/stringFormat';
+import { stringCut } from 'utils/stringFormat';
 import { FaPlay, FaInfoCircle } from 'react-icons/fa';
 import Button from 'components/Button';
+import { useLocation } from 'wouter';
 
 import './Header.css';
 
 function Banner() {
+  const [, pushLocation] = useLocation('');
   const [movie, setMovie] = useState([]);
-  const { movies } = useMovies(requests.fetchNetflixOriginals);
+  const { movies } = useMovies(home.fetchOriginals);
+
+  const handleClick = singleMovie => {
+    pushLocation(`/movie/${singleMovie.id}`);
+  };
 
   useEffect(() => {
     setMovie(movies[Math.floor(Math.random() * movies.length - 1)]);
@@ -26,15 +32,10 @@ function Banner() {
         }}></div>
       <div className="banner__spec">
         <h1 className="banner__title">{movie?.title || movie?.name || movie?.original_name}</h1>
-        <p className="banner__description">{stringFormat(movie?.overview, 150)}</p>
+        <p className="banner__description">{stringCut(movie?.overview, 150)}</p>
         <div className="banner__btns">
-          <Button title="Reproducir" icon={<FaPlay />} />
-          <Button
-            title="Más Información"
-            backgroundColor="rgba(109, 109, 110, 0.7)"
-            colorText="white"
-            icon={<FaInfoCircle />}
-          />
+          <Button title="Reproducir" icon={<FaPlay />} handleClick={() => handleClick(movie)} />
+          <Button title="Más Información" icon={<FaInfoCircle />} />
         </div>
       </div>
     </div>
