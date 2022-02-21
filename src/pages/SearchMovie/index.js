@@ -14,7 +14,7 @@ function SearchMovie({ params }) {
       const key = data.results.map(element => element.key);
       setVideo(key[Math.floor(Math.random() * key.length)] || key[0]);
     });
-  }, []);
+  }, [fetchUrl, id]);
 
   return (
     <div>

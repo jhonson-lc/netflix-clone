@@ -5,6 +5,7 @@ import './Video.css';
 const YoutubeEmbed = ({ videoId }) => (
   <div className="video">
     <iframe
+      title={videoId}
       width="800"
       height="400"
       src={`https://www.youtube.com/embed/${videoId}?autoplay=1&enable_js=1`}
