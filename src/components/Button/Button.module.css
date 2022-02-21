@@ -1,0 +1,43 @@
+.button,
+.button__info {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  border-radius: 0.4rem;
+  padding: 0.7rem 2rem;
+  cursor: pointer;
+  margin-right: 1rem;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background-color: #fff;
+}
+
+.button__info {
+  background-color: rgba(109, 109, 110, 0.7);
+  color: #fff;
+}
+
+.button span,
+.button__info span {
+  font-size: 2rem;
+  margin-left: 1rem;
+}
+
+.button svg,
+.button__info svg {
+  font-size: 2rem;
+}
+
+.button:hover {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.button__info:hover {
+  background-color: rgba(109, 109, 110, 0.4);
+}
+
+.button:active,
+.button__info:active {
+  outline: 2px solid #fff;
+}

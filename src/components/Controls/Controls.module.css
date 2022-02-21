@@ -1,0 +1,53 @@
+.Button {
+  background-color: rgba(20, 20, 20, 0.5);
+  border: none;
+  cursor: pointer;
+  height: 50%;
+  position: absolute;
+  top: 5rem;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  outline: none;
+  width: 5rem;
+  display: grid;
+  place-items: center;
+  align-content: center;
+}
+
+.Buttonprev {
+  left: 0;
+  margin: auto 0;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.Button span {
+  position: relative;
+  width: 3rem;
+  height: 1rem;
+  margin-bottom: 0.5rem;
+  background-color: #fff;
+}
+
+.Button span:first-child {
+  transform: rotate(45deg);
+}
+
+.Button span:last-child {
+  transform: rotate(-45deg);
+}
+
+.Buttonprev span:first-child {
+  transform: rotate(-45deg);
+}
+
+.Buttonprev span:last-child {
+  transform: rotate(45deg);
+}
