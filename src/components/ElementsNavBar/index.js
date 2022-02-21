@@ -1,14 +1,14 @@
 import React from 'react';
 import { optionsNavBar } from 'services/settings';
 import { useLocation } from 'wouter';
+import { stringFormat } from 'utils/stringFormat';
 
 function ElementsNavbar() {
   const [, pushLocation] = useLocation('');
   const handleClick = e => {
-    console.log(e.target.textContent);
     e.target.textContent === 'Inicio'
       ? pushLocation('/')
-      : pushLocation(`/${e.target.textContent.toLowerCase().replace(' ', '')}`);
+      : pushLocation(`/${stringFormat(e.target.textContent)}`);
   };
 
   return (

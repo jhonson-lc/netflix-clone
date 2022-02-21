@@ -1,25 +1,15 @@
 import React from 'react';
-import './Button.css';
-import { FaInfoCircle } from 'react-icons/fa';
+import styles from './Button.module.css';
 
-function Button({ title, icon, backgroundColor, colorText }) {
+function Button({ title, icon, handleClick }) {
+  const styleButton = title === 'Reproducir' ? styles.button : styles.button__info;
+
   return (
-    <div className="button" style={{ backgroundColor: `${backgroundColor}` }}>
-      <div className="button__icon" style={{ color: `${colorText}` }}>
-        {icon}
-      </div>
-      <button className="button__button" style={{ color: `${colorText}` }}>
-        {title}
-      </button>
-    </div>
+    <button onClick={handleClick} className={styleButton}>
+      <div>{icon}</div>
+      <span>{title}</span>
+    </button>
   );
 }
-
-Button.defaultProps = {
-  title: 'Default',
-  icon: <FaInfoCircle />,
-  backgroundColor: '#fff',
-  colorText: `#000`,
-};
 
 export default Button;
